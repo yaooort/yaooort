@@ -52,9 +52,9 @@ export default defineUserConfig({
 
     // personal information
     personalInfo: {
-      name: "Renovamen",
+      name: "Oort",
       avatar: "/img/avatar.jpg",
-      description: "いつか、私がヒトじゃなくなっても",
+      description: "明日之光",
       sns: {
         github: "Renovamen",
         linkedin: "xiaohan-zou",
@@ -159,7 +159,7 @@ export default defineUserConfig({
     ],
 
     footer: `
-      &copy; <a href="https://github.com/Renovamen" target="_blank">Renovamen</a> 2018-2022
+      &copy; <a href="https://github.com/Renovamen" target="_blank">Oort</a> 2009-2024
       <br>
       Powered by <a href="https://v2.vuepress.vuejs.org" target="_blank">VuePress</a> &
       <a href="https://github.com/Renovamen/vuepress-theme-gungnir" target="_blank">Gungnir</a>
