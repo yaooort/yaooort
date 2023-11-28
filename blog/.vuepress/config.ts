@@ -45,6 +45,7 @@ export default defineUserConfig({
 
   theme: gungnirTheme({
     repo: "yaooort/yaooort",
+    editLink: false,
     docsDir: "blog",
     docsBranch: "main",
     navbarTitle: "0.0",
