@@ -2,7 +2,7 @@
 layout: Post
 title: NLP 不入门
 subtitle: How to give up NLP
-author: Renovamen
+author: Re
 date: 2018-02-17
 headerImage: /img/in-post/2018-02-17/header.jpg
 permalinkPattern: /post/:year/:month/:day/:slug/
