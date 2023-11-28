@@ -27,8 +27,8 @@ export default defineUserConfig({
         href: `/img/logo/favicon-32x32.png`
       }
     ],
-    ["meta", {name: "application-name", content: "Xiaohan Zou"}],
-    ["meta", {name: "apple-mobile-web-app-title", content: "Xiaohan Zou"}],
+    ["meta", {name: "application-name", content: "yao oort"}],
+    ["meta", {name: "apple-mobile-web-app-title", content: "0ort"}],
     [
       "meta",
       {name: "apple-mobile-web-app-status-bar-style", content: "black"}
@@ -58,14 +58,15 @@ export default defineUserConfig({
       sns: {
         github: "yaooort",
         // linkedin: "yaooort",
-        // facebook: "yaooort",
+        facebook: "Oort Null",
         // twitter: "yaooort",
         // zhihu: "yaooort",
         email: "yaooort@gmail.com",
         rss: "/rss.xml",
         // 添加其他的社交平台
+        // 添加其他的社交平台
         bilibili: {  // 随便什么名字
-          icon: "ri-bilibili-line",  // 社交平台的图标
+          icon: "co-wechat",  // 社交平台的图标
           link: "https://www.bilibili.com/"  // 主页链接
         }
       }
@@ -117,6 +118,12 @@ export default defineUserConfig({
       // only enable git plugin in production mode
       git: isProd,
       katex: true,
+      chartjs: {
+        token: "chartjs"
+      },
+      mermaid: {
+        token: "mermaid"
+      },
       giscus: {
         repo: "This-is-an-Apple/blog-giscus-comments",
         repoId: "R_kgDOGl2SjQ",
@@ -146,21 +153,21 @@ export default defineUserConfig({
         link: "/tags/",
         icon: "fa-tag"
       },
-      {
-        text: "链接",
-        link: "/links/",
-        icon: "fa-satellite-dish"
-      },
+      // {
+      //   text: "链接",
+      //   link: "/links/",
+      //   icon: "fa-satellite-dish"
+      // },
       {
         text: "关于",
-        link: "https://zxh.io",
+        link: "https://oortk.com",
         icon: "fa-paw"
       },
-      {
-        text: "其他",
-        link: "https://portfolio.zxh.io/",
-        icon: "oi-rocket"
-      }
+      // {
+      //   text: "其他",
+      //   link: "https://portfolio.zxh.io/",
+      //   icon: "oi-rocket"
+      // }
     ],
 
     footer: `
