@@ -73,5 +73,5 @@ links:
       - sitename: Cube
         url: https://cube.zxh.io
         img: /img/links/cube.svg
-        desc: 玩魔方吗朋友
+        desc: 玩魔方吗
 ---
