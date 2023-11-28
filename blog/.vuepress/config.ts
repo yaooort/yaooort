@@ -3,7 +3,7 @@ import {defineUserConfig} from "vuepress";
 import {gungnirTheme} from "vuepress-theme-gungnir";
 
 const isProd = process.env.NODE_ENV === "production";
-
+// 配置
 export default defineUserConfig({
   lang: 'zh-CN',
   title: "Oort",
