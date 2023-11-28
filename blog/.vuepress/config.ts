@@ -44,7 +44,7 @@ export default defineUserConfig({
   bundler: viteBundler(),
 
   theme: gungnirTheme({
-    repo: "Renovamen/blog.zxh.io",
+    repo: "Renovamen/oortk.com",
     docsDir: "blog",
     docsBranch: "master",
 
@@ -117,7 +117,7 @@ export default defineUserConfig({
         repoId: "R_kgDOGl2SjQ",
         category: "Announcements",
         categoryId: "DIC_kwDOGl2Sjc4CAcxK",
-        darkTheme: "https://blog.zxh.io/styles/giscus-dark.css"
+        darkTheme: "https://oortk.com/styles/giscus-dark.css"
       },
       mdPlus: {
         all: true
@@ -125,7 +125,7 @@ export default defineUserConfig({
       ga: "G-HCQSX53XFG",
       ba: "75381d210789d3eaf855fa16246860cc",
       rss: {
-        siteURL: "https://blog.zxh.io",
+        siteURL: "https://oortk.com",
         copyright: "Renovamen 2018-2022"
       }
     },
