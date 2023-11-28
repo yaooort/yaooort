@@ -9,28 +9,32 @@ on:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+
+    env:
+      NODE_VERSION: '16'
+
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
         with:
           fetch-depth: 0
 
-      - name: Setup Node
+      - name: Install pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 7
+
+      - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 16
+          node-version: ${{ env.NODE_VERSION }}
+          cache: pnpm
 
-      - name: install npm@9
-        run: npm i -g npm@9
-
-      - name: install pnpm@8.3.1
-        run: pnpm i -g pnpm
-
-      - name: Install Dependencies
+      - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-      - name: Build Packages
-        run: pnpm run build
+      - name: Build site
+        run: pnpm build
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
