@@ -104,10 +104,6 @@ Nicolas Iderhoff 已经创建了一份[公开、详尽的 NLP 数据集的列表
 
 - Use [k-means](https://en.wikipedia.org/wiki/K-means_clustering) to cluster [tf-idf](https://en.wikipedia.org/wiki/Tf%E2%80%93idf) vectors of text, e.g. news articles
 
-- Implement a [named-entity recognizer (NER) (命名实体识别)](https://en.wikipedia.org/wiki/Named-entity_recognition) (also called a name tagger), e.g. following the [CoNLL-2003 shared task](https://www.clips.uantwerpen.be/conll2003/ner/)
-
-## NLP on social media
-
 - Twitter: [#nlproc](https://twitter.com/hashtag/nlproc), [list of NLPers](https://twitter.com/hashtag/nlproc) (by Jason Baldrige)
 
 - Reddit: [/r/LanguageTechnology](https://www.reddit.com/r/LanguageTechnology)
