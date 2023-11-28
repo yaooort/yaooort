@@ -13,28 +13,29 @@ jobs:
 
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - name: 拉取代码
       - uses: actions/checkout@v3
         with:
           fetch-depth: 0
 
-      - name: Install pnpm
+      - name: 安装 pnpm
         uses: pnpm/action-setup@v2
         with:
           version: 7
 
-      - name: Setup Node.js
+      - name: 设置 Node.js
         uses: actions/setup-node@v3
         with:
           node-version: ${{ env.NODE_VERSION }}
           cache: pnpm
 
-      - name: Install dependencies
+      - name: 安装依赖
         run: pnpm install --no-frozen-lockfile
 
-      - name: Build site
+      - name: 编译代码
         run: pnpm build
 
-      - name: Deploy
+      - name: 部署到gh-pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
