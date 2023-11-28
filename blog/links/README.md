@@ -69,7 +69,7 @@ links:
       - sitename: 小游戏合集
         url: https://galaxy.zxh.io
         img: /img/links/game.svg
-        desc: 虽然其实也就俩游戏
+        desc: 虽然其实
       - sitename: Cube
         url: https://cube.zxh.io
         img: /img/links/cube.svg
