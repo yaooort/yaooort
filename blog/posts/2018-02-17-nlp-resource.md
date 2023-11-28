@@ -1,6 +1,6 @@
 ---
 layout: Post
-title: NLP 不入门直接放弃
+title: NLP 不入门
 subtitle: How to give up NLP
 author: Renovamen
 date: 2018-02-17
