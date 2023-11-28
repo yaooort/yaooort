@@ -81,7 +81,7 @@ MIT 18.06 / Stanford CS229 (Linear Algebra 部分)
 
 1. 行列内积
 
-    如果按行写 $A$，可以把 $Ax$ 表示为：
+    如果按行写 $A$，冲冲冲可以把 $Ax$ 表示为：
 
     $$
     y = Ax = 
