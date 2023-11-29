@@ -46,6 +46,7 @@ export default defineUserConfig({
   theme: gungnirTheme({
     repo: "yaooort/yaooort",
     editLink: false,
+    lastUpdated: false,
     docsDir: "blog",
     docsBranch: "main",
     navbarTitle: "0.0",
@@ -126,11 +127,12 @@ export default defineUserConfig({
         token: "mermaid"
       },
       giscus: {
-        repo: "This-is-an-Apple/blog-giscus-comments",
-        repoId: "R_kgDOGl2SjQ",
+        repo: "yaooort/yaooort",
+        repoId: "R_kgDOIthQuA",
         category: "Announcements",
-        categoryId: "DIC_kwDOGl2Sjc4CAcxK",
-        darkTheme: "https://oortk.com/styles/giscus-dark.css"
+        categoryId: "DIC_kwDOIthQuM4CbWX",
+        darkTheme: "https://oortk.com/styles/giscus-dark.css",
+        lazyLoad: true,
       },
       mdPlus: {
         all: true
@@ -140,6 +142,14 @@ export default defineUserConfig({
       rss: {
         siteURL: "https://oortk.com",
         copyright: "Renovamen 2018-2022"
+      },
+      readingTime: {
+        excludes: [],  // 不需要进行统计的页面路径（可选，默认：[]）
+        includes : [],  // 需要进行统计的页面路径，如果指定了这一项，那么 `excludes` 项无效（可选，默认：[]）
+        wordsPerMinuteCN: 300,  // 一分钟可以阅读多少个中文字符（可选，默认：300）
+        wordsPerMinuteEN: 160,  // 一分钟可以阅读多少个英文字符（可选，默认：160）
+        excludeCodeBlock: true,  // 是否排除所有代码块内的字符（可选，默认：false）
+        excludeTexBlock: true    // 是否排除所有公式块内的字符（可选，默认：false）
       }
     },
 
@@ -170,7 +180,6 @@ export default defineUserConfig({
       //   icon: "oi-rocket"
       // }
     ],
-
     footer: `
       &copy; <a href="https://github.com/Renovamen" target="_blank">Oort</a> 2009-2024
       <br>
