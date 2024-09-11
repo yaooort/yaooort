@@ -1,6 +1,7 @@
 import {viteBundler} from "@vuepress/bundler-vite";
 import {defineUserConfig} from "vuepress";
 import {gungnirTheme} from "vuepress-theme-gungnir";
+import googleAdSensePlugin from 'vuepress-plugin-google-adsense';
 
 const isProd = process.env.NODE_ENV === "production";
 // 配置
@@ -38,7 +39,15 @@ export default defineUserConfig({
       {rel: "apple-touch-icon", href: `/img/logo/apple-touch-icon.png`}
     ],
     ["meta", {name: "theme-color", content: "#377bb5"}],
-    ["meta", {name: "msapplication-TileColor", content: "#377bb5"}]
+    ["meta", {name: "msapplication-TileColor", content: "#377bb5"}],
+    [
+      "script",
+      {
+        "data-ad-client": "ca-pub-8875743245757885",
+        async: true,
+        src: "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+      }
+    ]
   ],
 
   bundler: viteBundler(),
