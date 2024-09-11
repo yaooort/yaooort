@@ -130,7 +130,9 @@ export default defineUserConfig({
         repo: "yaooort/yaooort",
         repoId: "R_kgDOIthQuA",
         category: "Announcements",
-        categoryId: "DIC_kwDOIthQuM4CbWX",
+        categoryId: "DIC_kwDOIthQuM4CbWX-",
+        mapping: "url",
+        crossorigin: "anonymous",
         darkTheme: "https://oortk.com/styles/giscus-dark.css",
         lazyLoad: true,
       },
@@ -141,15 +143,15 @@ export default defineUserConfig({
       ba: "0063b84a6a9d21a9a3ae130a736d2193",
       rss: {
         siteURL: "https://oortk.com",
-        copyright: "Renovamen 2018-2022"
+        copyright: "Oort 2018-2024"
       },
       readingTime: {
         excludes: [],  // 不需要进行统计的页面路径（可选，默认：[]）
         includes : [],  // 需要进行统计的页面路径，如果指定了这一项，那么 `excludes` 项无效（可选，默认：[]）
         wordsPerMinuteCN: 300,  // 一分钟可以阅读多少个中文字符（可选，默认：300）
         wordsPerMinuteEN: 160,  // 一分钟可以阅读多少个英文字符（可选，默认：160）
-        excludeCodeBlock: true,  // 是否排除所有代码块内的字符（可选，默认：false）
-        excludeTexBlock: true    // 是否排除所有公式块内的字符（可选，默认：false）
+        excludeCodeBlock: false,  // 是否排除所有代码块内的字符（可选，默认：false）
+        excludeTexBlock: false    // 是否排除所有公式块内的字符（可选，默认：false）
       }
     },
 
