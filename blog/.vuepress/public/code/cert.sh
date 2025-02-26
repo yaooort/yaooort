@@ -1,5 +1,5 @@
 #!/bin/bash
-set -euo pipefail
+# set -euo pipefail
 
 # 定义颜色代码
 RED='\033[0;31m'
