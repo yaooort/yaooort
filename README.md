@@ -46,6 +46,7 @@
   <img src="https://img.shields.io/badge/Java-1F6F00?style=for-the-badge&logo=openjdka&logoColor=white" />
   <img src="https://img.shields.io/badge/OBJECTIVE--C-%233A95E3.svg?style=for-the-badge&logo=apple&logoColor=white" />
   <img src="https://img.shields.io/badge/swift-F54A2A?style=for-the-badge&logo=swift&logoColor=white" />
+  <img src="https://img.shields.io/badge/kotlin-#7F52FF?style=for-the-badge&logo=kotlin&logoColor=white" />
 </p>
 
 
