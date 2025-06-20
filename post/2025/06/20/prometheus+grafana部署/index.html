@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="generator" content="VuePress 2.0.0-beta.49">
+    <style>
+      :root {
+        --c-bg: #fff;
+      }
+      html.dark {
+        --c-bg: #22272e;
+      }
+      html, body {
+        background-color: var(--c-bg);
+      }
+    </style>
+    <script>
+      const userMode = localStorage.getItem('vuepress-color-scheme');
+			const systemDarkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+			if (userMode === 'dark' || (userMode !== 'light' && systemDarkMode)) {
+				document.documentElement.classList.toggle('dark', true);
+			}
+    </script>
+    <link rel="icon" type="image/png" sizes="16x16" href="/img/logo/favicon-16x16.png"><link rel="icon" type="image/png" sizes="32x32" href="/img/logo/favicon-32x32.png"><meta name="application-name" content="yao oort"><meta name="apple-mobile-web-app-title" content="0ort"><meta name="apple-mobile-web-app-status-bar-style" content="black"><link rel="apple-touch-icon" href="/img/logo/apple-touch-icon.png"><meta name="theme-color" content="#377bb5"><meta name="msapplication-TileColor" content="#377bb5"><script data-ad-client="ca-pub-8875743245757885" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><title>Prometheus+Grafana Docker部署初体验 | Oort</title><meta name="description" content="笔墨间，岁月静好，吾心所向，字字珠玑，篇篇不朽。">
+    <link rel="modulepreload" href="/assets/app.705b278e.js"><link rel="modulepreload" href="/assets/index.html.ba3656e3.js"><link rel="modulepreload" href="/assets/index.html.7e4c9d8a.js"><link rel="prefetch" href="/assets/index.html.134bc726.js"><link rel="prefetch" href="/assets/index.html.71d73135.js"><link rel="prefetch" href="/assets/index.html.e3cccb1f.js"><link rel="prefetch" href="/assets/index.html.32b63e0d.js"><link rel="prefetch" href="/assets/index.html.959a6e10.js"><link rel="prefetch" href="/assets/index.html.37832aee.js"><link rel="prefetch" href="/assets/index.html.e71d5a74.js"><link rel="prefetch" href="/assets/index.html.25a9bb20.js"><link rel="prefetch" href="/assets/index.html.6d006903.js"><link rel="prefetch" href="/assets/index.html.9bfedec3.js"><link rel="prefetch" href="/assets/index.html.d7f4dd29.js"><link rel="prefetch" href="/assets/index.html.1131db38.js"><link rel="prefetch" href="/assets/404.html.4256f744.js"><link rel="prefetch" href="/assets/index.html.2dff2632.js"><link rel="prefetch" href="/assets/index.html.7e0a25d2.js"><link rel="prefetch" href="/assets/index.html.2aca75dc.js"><link rel="prefetch" href="/assets/index.html.84251657.js"><link rel="prefetch" href="/assets/index.html.76b45583.js"><link rel="prefetch" href="/assets/index.html.4fae652c.js"><link rel="prefetch" href="/assets/index.html.df37cd61.js"><link rel="prefetch" href="/assets/index.html.04c9a6ff.js"><link rel="prefetch" href="/assets/index.html.af06aaee.js"><link rel="prefetch" href="/assets/index.html.14ee9f25.js"><link rel="prefetch" href="/assets/index.html.f65f5d25.js"><link rel="prefetch" href="/assets/index.html.c0ec3954.js"><link rel="prefetch" href="/assets/index.html.40aea493.js"><link rel="prefetch" href="/assets/index.html.df171396.js"><link rel="prefetch" href="/assets/index.html.be02e69f.js"><link rel="prefetch" href="/assets/index.html.98ba6614.js"><link rel="prefetch" href="/assets/index.html.b506281d.js"><link rel="prefetch" href="/assets/index.html.01031e8e.js"><link rel="prefetch" href="/assets/index.html.aae88470.js"><link rel="prefetch" href="/assets/index.html.230f9370.js"><link rel="prefetch" href="/assets/index.html.639efd90.js"><link rel="prefetch" href="/assets/index.html.e88d83d8.js"><link rel="prefetch" href="/assets/index.html.1e337a4f.js"><link rel="prefetch" href="/assets/index.html.cf2c0eea.js"><link rel="prefetch" href="/assets/404.html.992dcd1b.js"><link rel="prefetch" href="/assets/index.html.175eb007.js"><link rel="prefetch" href="/assets/index.html.6c031000.js"><link rel="prefetch" href="/assets/index.html.92e3ce62.js"><link rel="prefetch" href="/assets/index.html.cb780adf.js"><link rel="prefetch" href="/assets/index.html.c0e3ea5a.js"><link rel="prefetch" href="/assets/index.html.36184fee.js"><link rel="prefetch" href="/assets/index.html.9d6d9ed0.js"><link rel="prefetch" href="/assets/index.html.124abcd7.js"><link rel="prefetch" href="/assets/index.html.56874622.js"><link rel="prefetch" href="/assets/index.html.820cd43e.js"><link rel="prefetch" href="/assets/index.html.b35a938b.js"><link rel="prefetch" href="/assets/index.html.b5d6fd70.js"><link rel="prefetch" href="/assets/404.cfc9b5eb.js"><link rel="prefetch" href="/assets/HomePage.3b557e96.js"><link rel="prefetch" href="/assets/Layout.c0f23826.js"><link rel="prefetch" href="/assets/Links.6d8d5598.js"><link rel="prefetch" href="/assets/Post.b84d981e.js"><link rel="prefetch" href="/assets/Tags.720b167d.js"><link rel="prefetch" href="/assets/mermaid.core.faae3016.js">
+    <link rel="stylesheet" href="/assets/style.3014ee23.css">
+  </head>
+  <body>
+    <div id="app"><!--[--><div class="theme-container no-sidebar"><!--[--><header class="navbar invert"><span><a href="/" class=""><span class="site-name">0.0</span></a></span><div class="navbar-items-wrapper" style=""><!--[--><!--]--><nav class="navbar-items can-hide"><!--[--><div class="navbar-item"><a href="/" class="" aria-label="首页"><!--[--><!--]--><span class="nav-icon"><svg class="ov-icon" style="font-size:1.2em;" aria-hidden="true" width="19.2" height="19.2" viewBox="-43.52 -43.52 599.04 599.04" fill="currentColor"><path d="M489.2 287.9h-27.4c-2.6 0-4.6 2-4.6 4.6v32h-36.6V146.2c0-2.6-2-4.6-4.6-4.6h-27.4c-2.6 0-4.6 2-4.6 4.6v32h-36.6v-32c0-2.6-2-4.6-4.6-4.6h-27.4c-2.6 0-4.6 2-4.6 4.6v32h-36.6v-32c0-6-8-4.6-11.7-4.6v-38c8.3-2 17.1-3.4 25.7-3.4 10.9 0 20.9 4.3 31.4 4.3 4.6 0 27.7-1.1 27.7-8v-60c0-2.6-2-4.6-4.6-4.6-5.1 0-15.1 4.3-24 4.3-9.7 0-20.9-4.3-32.6-4.3-8 0-16 1.1-23.7 2.9v-4.9c5.4-2.6 9.1-8.3 9.1-14.3 0-20.7-31.4-20.8-31.4 0 0 6 3.7 11.7 9.1 14.3v111.7c-3.7 0-11.7-1.4-11.7 4.6v32h-36.6v-32c0-2.6-2-4.6-4.6-4.6h-27.4c-2.6 0-4.6 2-4.6 4.6v32H128v-32c0-2.6-2-4.6-4.6-4.6H96c-2.6 0-4.6 2-4.6 4.6v178.3H54.8v-32c0-2.6-2-4.6-4.6-4.6H22.8c-2.6 0-4.6 2-4.6 4.6V512h182.9v-96c0-72.6 109.7-72.6 109.7 0v96h182.9V292.5c.1-2.6-1.9-4.6-4.5-4.6zm-288.1-4.5c0 2.6-2 4.6-4.6 4.6h-27.4c-2.6 0-4.6-2-4.6-4.6v-64c0-2.6 2-4.6 4.6-4.6h27.4c2.6 0 4.6 2 4.6 4.6v64zm146.4 0c0 2.6-2 4.6-4.6 4.6h-27.4c-2.6 0-4.6-2-4.6-4.6v-64c0-2.6 2-4.6 4.6-4.6h27.4c2.6 0 4.6 2 4.6 4.6v64z"/></svg></span><span>首页</span><!--[--><!--]--></a></div><div class="navbar-item"><a href="/tags/" class="" aria-label="标签"><!--[--><!--]--><span class="nav-icon"><svg class="ov-icon" style="font-size:1.2em;" aria-hidden="true" width="19.2" height="19.2" viewBox="-43.52 -43.52 599.04 599.04" fill="currentColor"><path d="M0 252.118V48C0 21.49 21.49 0 48 0h204.118a48 48 0 0133.941 14.059l211.882 211.882c18.745 18.745 18.745 49.137 0 67.882L293.823 497.941c-18.745 18.745-49.137 18.745-67.882 0L14.059 286.059A48 48 0 010 252.118zM112 64c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.49-48-48-48z"/></svg></span><span>标签</span><!--[--><!--]--></a></div><div class="navbar-item"><a class="external-link" href="https://oortk.com" rel="noopener noreferrer" target="_blank" aria-label="关于"><!--[--><!--]--><span class="nav-icon"><svg class="ov-icon" style="font-size:1.2em;" aria-hidden="true" width="19.2" height="19.2" viewBox="-43.52 -43.52 599.04 599.04" fill="currentColor"><path d="M256 224c-79.41 0-192 122.76-192 200.25 0 34.9 26.81 55.75 71.74 55.75 48.84 0 81.09-25.08 120.26-25.08 39.51 0 71.85 25.08 120.26 25.08 44.93 0 71.74-20.85 71.74-55.75C448 346.76 335.41 224 256 224zm-147.28-12.61c-10.4-34.65-42.44-57.09-71.56-50.13-29.12 6.96-44.29 40.69-33.89 75.34 10.4 34.65 42.44 57.09 71.56 50.13 29.12-6.96 44.29-40.69 33.89-75.34zm84.72-20.78c30.94-8.14 46.42-49.94 34.58-93.36s-46.52-72.01-77.46-63.87-46.42 49.94-34.58 93.36c11.84 43.42 46.53 72.02 77.46 63.87zm281.39-29.34c-29.12-6.96-61.15 15.48-71.56 50.13-10.4 34.65 4.77 68.38 33.89 75.34 29.12 6.96 61.15-15.48 71.56-50.13 10.4-34.65-4.77-68.38-33.89-75.34zm-156.27 29.34c30.94 8.14 65.62-20.45 77.46-63.87 11.84-43.42-3.64-85.21-34.58-93.36s-65.62 20.45-77.46 63.87c-11.84 43.42 3.64 85.22 34.58 93.36z"/></svg></span><span>关于</span><!--[--><!--]--></a></div><!--]--><div class="navbar-item"><a style="cursor:pointer;"><span class="nav-icon"><svg class="ov-icon" style="font-size:1.2em;" aria-hidden="true" width="19.2" height="19.2" viewBox="0 0 24 24" fill="currentColor"><path fill="none" d="M0 0h24v24H0z"/><path d="M11 2c4.968 0 9 4.032 9 9s-4.032 9-9 9-9-4.032-9-9 4.032-9 9-9zm0 16c3.867 0 7-3.133 7-7 0-3.868-3.133-7-7-7-3.868 0-7 3.132-7 7 0 3.867 3.132 7 7 7zm8.485.071l2.829 2.828-1.415 1.415-2.828-2.829 1.414-1.414z"/></svg></span><span>搜索</span></a></div></nav><!--[--><!--]--><!----></div></header><!--]--><div class="sidebar-mask"></div><!--[--><aside class="sidebar"><nav class="navbar-items"><!--[--><div class="navbar-item"><a href="/" class="" aria-label="首页"><!--[--><!--]--><span class="nav-icon"><svg class="ov-icon" style="font-size:1.2em;" aria-hidden="true" width="19.2" height="19.2" viewBox="-43.52 -43.52 599.04 599.04" fill="currentColor"><path d="M489.2 287.9h-27.4c-2.6 0-4.6 2-4.6 4.6v32h-36.6V146.2c0-2.6-2-4.6-4.6-4.6h-27.4c-2.6 0-4.6 2-4.6 4.6v32h-36.6v-32c0-2.6-2-4.6-4.6-4.6h-27.4c-2.6 0-4.6 2-4.6 4.6v32h-36.6v-32c0-6-8-4.6-11.7-4.6v-38c8.3-2 17.1-3.4 25.7-3.4 10.9 0 20.9 4.3 31.4 4.3 4.6 0 27.7-1.1 27.7-8v-60c0-2.6-2-4.6-4.6-4.6-5.1 0-15.1 4.3-24 4.3-9.7 0-20.9-4.3-32.6-4.3-8 0-16 1.1-23.7 2.9v-4.9c5.4-2.6 9.1-8.3 9.1-14.3 0-20.7-31.4-20.8-31.4 0 0 6 3.7 11.7 9.1 14.3v111.7c-3.7 0-11.7-1.4-11.7 4.6v32h-36.6v-32c0-2.6-2-4.6-4.6-4.6h-27.4c-2.6 0-4.6 2-4.6 4.6v32H128v-32c0-2.6-2-4.6-4.6-4.6H96c-2.6 0-4.6 2-4.6 4.6v178.3H54.8v-32c0-2.6-2-4.6-4.6-4.6H22.8c-2.6 0-4.6 2-4.6 4.6V512h182.9v-96c0-72.6 109.7-72.6 109.7 0v96h182.9V292.5c.1-2.6-1.9-4.6-4.5-4.6zm-288.1-4.5c0 2.6-2 4.6-4.6 4.6h-27.4c-2.6 0-4.6-2-4.6-4.6v-64c0-2.6 2-4.6 4.6-4.6h27.4c2.6 0 4.6 2 4.6 4.6v64zm146.4 0c0 2.6-2 4.6-4.6 4.6h-27.4c-2.6 0-4.6-2-4.6-4.6v-64c0-2.6 2-4.6 4.6-4.6h27.4c2.6 0 4.6 2 4.6 4.6v64z"/></svg></span><span>首页</span><!--[--><!--]--></a></div><div class="navbar-item"><a href="/tags/" class="" aria-label="标签"><!--[--><!--]--><span class="nav-icon"><svg class="ov-icon" style="font-size:1.2em;" aria-hidden="true" width="19.2" height="19.2" viewBox="-43.52 -43.52 599.04 599.04" fill="currentColor"><path d="M0 252.118V48C0 21.49 21.49 0 48 0h204.118a48 48 0 0133.941 14.059l211.882 211.882c18.745 18.745 18.745 49.137 0 67.882L293.823 497.941c-18.745 18.745-49.137 18.745-67.882 0L14.059 286.059A48 48 0 010 252.118zM112 64c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.49-48-48-48z"/></svg></span><span>标签</span><!--[--><!--]--></a></div><div class="navbar-item"><a class="external-link" href="https://oortk.com" rel="noopener noreferrer" target="_blank" aria-label="关于"><!--[--><!--]--><span class="nav-icon"><svg class="ov-icon" style="font-size:1.2em;" aria-hidden="true" width="19.2" height="19.2" viewBox="-43.52 -43.52 599.04 599.04" fill="currentColor"><path d="M256 224c-79.41 0-192 122.76-192 200.25 0 34.9 26.81 55.75 71.74 55.75 48.84 0 81.09-25.08 120.26-25.08 39.51 0 71.85 25.08 120.26 25.08 44.93 0 71.74-20.85 71.74-55.75C448 346.76 335.41 224 256 224zm-147.28-12.61c-10.4-34.65-42.44-57.09-71.56-50.13-29.12 6.96-44.29 40.69-33.89 75.34 10.4 34.65 42.44 57.09 71.56 50.13 29.12-6.96 44.29-40.69 33.89-75.34zm84.72-20.78c30.94-8.14 46.42-49.94 34.58-93.36s-46.52-72.01-77.46-63.87-46.42 49.94-34.58 93.36c11.84 43.42 46.53 72.02 77.46 63.87zm281.39-29.34c-29.12-6.96-61.15 15.48-71.56 50.13-10.4 34.65 4.77 68.38 33.89 75.34 29.12 6.96 61.15-15.48 71.56-50.13 10.4-34.65-4.77-68.38-33.89-75.34zm-156.27 29.34c30.94 8.14 65.62-20.45 77.46-63.87 11.84-43.42-3.64-85.21-34.58-93.36s-65.62 20.45-77.46 63.87c-11.84 43.42 3.64 85.22 34.58 93.36z"/></svg></span><span>关于</span><!--[--><!--]--></a></div><!--]--><div class="navbar-item"><a style="cursor:pointer;"><span class="nav-icon"><svg class="ov-icon" style="font-size:1.2em;" aria-hidden="true" width="19.2" height="19.2" viewBox="0 0 24 24" fill="currentColor"><path fill="none" d="M0 0h24v24H0z"/><path d="M11 2c4.968 0 9 4.032 9 9s-4.032 9-9 9-9-4.032-9-9 4.032-9 9-9zm0 16c3.867 0 7-3.133 7-7 0-3.868-3.133-7-7-7-3.868 0-7 3.132-7 7 0 3.867 3.132 7 7 7zm8.485.071l2.829 2.828-1.415 1.415-2.828-2.829 1.414-1.414z"/></svg></span><span>搜索</span></a></div></nav><!--[--><!--]--><!----><!--[--><!--]--></aside><!--]--><div class="page-content"><!--[--><div class="show-catalog post-wrapper"><div class="article-header use-image post-header" style="background-image:url(/img/in-post/2025-06-20/header.jpeg);"><div class="article-header-mask" style="background:rgb(14, 21, 5, .2);"></div><div class="article-header-content"><div class="article-tags"><!--[--><a href="/tags/%E8%BF%90%E7%BB%B4/" class="article-tag">运维</a><!--]--></div><h1 class="article-title">Prometheus+Grafana Docker部署初体验</h1><p class="article-subtitle">Prometheus+Grafana docker compose 单机监控 mysql redis go gin clickhouse nsq</p><div class="article-icons"><div class="article-icon"><svg class="ov-icon" style="font-size:1.2em;" aria-hidden="true" width="19.2" height="19.2" viewBox="-75.52 -43.52 599.04 599.04" fill="currentColor"><path d="M313.6 304c-28.7 0-42.5 16-89.6 16-47.1 0-60.8-16-89.6-16C60.2 304 0 364.2 0 438.4V464c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48v-25.6c0-74.2-60.2-134.4-134.4-134.4zM400 464H48v-25.6c0-47.6 38.8-86.4 86.4-86.4 14.6 0 38.3 16 89.6 16 51.7 0 74.9-16 89.6-16 47.6 0 86.4 38.8 86.4 86.4V464zM224 288c79.5 0 144-64.5 144-144S303.5 0 224 0 80 64.5 80 144s64.5 144 144 144zm0-240c52.9 0 96 43.1 96 96s-43.1 96-96 96-96-43.1-96-96 43.1-96 96-96z"/></svg><span>Oort</span></div><div class="article-icon"><svg class="ov-icon" style="font-size:1.2em;" aria-hidden="true" width="19.2" height="19.2" viewBox="-75.52 -43.52 599.04 599.04" fill="currentColor"><path d="M400 64h-48V12c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v52H160V12c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v52H48C21.5 64 0 85.5 0 112v352c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V112c0-26.5-21.5-48-48-48zm-6 400H54c-3.3 0-6-2.7-6-6V160h352v298c0 3.3-2.7 6-6 6z"/></svg><span>2025-06-20</span></div><div class="article-icon"><svg class="ov-icon" style="font-size:1.2em;" aria-hidden="true" width="19.2" height="19.2" viewBox="0 0 24 24" fill="currentColor"><path fill="none" d="M0 0h24v24H0z"/><path d="M17.618 5.968l1.453-1.453 1.414 1.414-1.453 1.453a9 9 0 11-1.414-1.414zM12 20a7 7 0 100-14 7 7 0 000 14zM11 8h2v6h-2V8zM8 1h8v2H8V1z"/></svg><span>6 min</span></div></div></div><!----></div><main class="page post-content"><!--[--><!--]--><div class="theme-gungnir-content"><!--[--><!--]--><div><p>最近在做一些服务监控和可视化需求，决定用最流行的 Prometheus + Grafana 组合，配合 Docker Compose 一键搭建一套单机环境，顺便监控 mysql、redis、go/gin 服务、clickhouse、nsq、宿主机等，记录一下踩过的坑和完整流程，方便大家快速上手和复现。</p><h2 id="一、目录结构" tabindex="-1"><a class="header-anchor" href="#一、目录结构" aria-hidden="true">#</a> 一、目录结构</h2><p>项目目录如下，方便后续持久化和自定义配置：</p><div class="language-text ext-text"><pre class="language-text"><code>.
+├── clickhouse
+│   ├── data
+│   └── source
+│       └── init.sql
+├── create_docker_net.sh
+├── docker-compose.yaml
+├── grafana
+│   └── data
+│       ├── csv
+│       ├── grafana.db
+│       ├── pdf
+│       ├── plugins
+│       └── png
+├── nsq
+│   └── data
+├── prometheus
+│   └── prometheus.yml
+├── redis
+│   ├── data
+│   │   └── dump.rdb
+│   ├── logs
+│   └── redis.conf
+└── server
+    ├── config.docker.yaml
+</code></pre></div><h2 id="二、docker-compose-服务编排" tabindex="-1"><a class="header-anchor" href="#二、docker-compose-服务编排" aria-hidden="true">#</a> 二、Docker Compose 服务编排</h2><p>重点是 docker-compose.yaml 文件，核心服务包括：</p><ul><li>prometheus</li><li>grafana</li><li>redis_exporter</li><li>mysqld_exporter</li><li>clickhouse_exporter</li><li>nsq_exporter</li><li>node_exporter（宿主机指标采集）</li></ul><p><strong>docker-compose.yaml 片段如下：</strong></p><div class="language-yaml ext-yml"><pre class="language-yaml"><code><span class="token key atrule">prometheus</span><span class="token punctuation">:</span>
+  <span class="token key atrule">image</span><span class="token punctuation">:</span> prom/prometheus<span class="token punctuation">:</span>latest
+  <span class="token key atrule">container_name</span><span class="token punctuation">:</span> prometheus
+  <span class="token key atrule">volumes</span><span class="token punctuation">:</span>
+    <span class="token punctuation">-</span> $PWD/prometheus/prometheus.yml<span class="token punctuation">:</span>/etc/prometheus/prometheus.yml
+  <span class="token key atrule">command</span><span class="token punctuation">:</span>
+    <span class="token punctuation">-</span> <span class="token string">&quot;--config.file=/etc/prometheus/prometheus.yml&quot;</span>
+    <span class="token punctuation">-</span> <span class="token string">&quot;--storage.tsdb.retention.time=3d&quot;</span>
+  <span class="token comment">#    ports:</span>
+  <span class="token comment">#      - &quot;9090:9090&quot;</span>
+  <span class="token key atrule">depends_on</span><span class="token punctuation">:</span>
+    <span class="token punctuation">-</span> mysqld_exporter
+    <span class="token punctuation">-</span> redis_exporter
+    <span class="token punctuation">-</span> clickhouse_exporter
+    <span class="token punctuation">-</span> nsq_exporter
+    <span class="token punctuation">-</span> server
+  <span class="token key atrule">networks</span><span class="token punctuation">:</span>
+    <span class="token key atrule">app_net</span><span class="token punctuation">:</span>
+      <span class="token key atrule">ipv4_address</span><span class="token punctuation">:</span> 188.8.8.41
+
+<span class="token key atrule">grafana</span><span class="token punctuation">:</span>
+  <span class="token key atrule">image</span><span class="token punctuation">:</span> grafana/grafana<span class="token punctuation">:</span>latest
+  <span class="token key atrule">container_name</span><span class="token punctuation">:</span> grafana
+  <span class="token key atrule">ports</span><span class="token punctuation">:</span>
+    <span class="token punctuation">-</span> <span class="token string">&quot;3000:3000&quot;</span>
+  <span class="token key atrule">environment</span><span class="token punctuation">:</span>
+    <span class="token punctuation">-</span> GF_SECURITY_ADMIN_PASSWORD=admin <span class="token comment"># 管理员密码</span>
+    <span class="token punctuation">-</span> TZ=Asia/Shanghai
+  <span class="token key atrule">depends_on</span><span class="token punctuation">:</span>
+    <span class="token punctuation">-</span> prometheus
+  <span class="token key atrule">volumes</span><span class="token punctuation">:</span>
+    <span class="token punctuation">-</span> $PWD/grafana/data<span class="token punctuation">:</span>/var/lib/grafana <span class="token comment"># 持久化数据</span>
+  <span class="token key atrule">networks</span><span class="token punctuation">:</span>
+    <span class="token key atrule">app_net</span><span class="token punctuation">:</span>
+      <span class="token key atrule">ipv4_address</span><span class="token punctuation">:</span> 188.8.8.42
+
+<span class="token key atrule">redis_exporter</span><span class="token punctuation">:</span>
+  <span class="token key atrule">image</span><span class="token punctuation">:</span> oliver006/redis_exporter<span class="token punctuation">:</span>v1.61.0
+  <span class="token key atrule">container_name</span><span class="token punctuation">:</span> redis_exporter
+  <span class="token key atrule">environment</span><span class="token punctuation">:</span>
+    <span class="token punctuation">-</span> REDIS_ADDR=redis<span class="token punctuation">:</span>//127.0.0.1<span class="token punctuation">:</span><span class="token number">6379</span>
+    <span class="token punctuation">-</span> REDIS_PASSWORD=123456
+  <span class="token comment">#    ports:</span>
+  <span class="token comment">#      - &quot;9121:9121&quot;</span>
+  <span class="token key atrule">depends_on</span><span class="token punctuation">:</span>
+    <span class="token punctuation">-</span> redis
+  <span class="token key atrule">networks</span><span class="token punctuation">:</span>
+    <span class="token key atrule">app_net</span><span class="token punctuation">:</span>
+      <span class="token key atrule">ipv4_address</span><span class="token punctuation">:</span> 188.8.8.43
+
+<span class="token key atrule">mysqld_exporter</span><span class="token punctuation">:</span>
+  <span class="token key atrule">image</span><span class="token punctuation">:</span> prom/mysqld<span class="token punctuation">-</span>exporter<span class="token punctuation">:</span>latest
+  <span class="token key atrule">container_name</span><span class="token punctuation">:</span> mysqld_exporter
+  <span class="token comment">#    ports:</span>
+  <span class="token comment">#      - &quot;9104:9104&quot;</span>
+  <span class="token key atrule">command</span><span class="token punctuation">:</span>
+    <span class="token punctuation">-</span> <span class="token string">&quot;--mysqld.username=root:123456&quot;</span>
+    <span class="token punctuation">-</span> <span class="token string">&quot;--mysqld.address=127.0.0.1:3306&quot;</span>
+  <span class="token key atrule">restart</span><span class="token punctuation">:</span> always
+  <span class="token key atrule">networks</span><span class="token punctuation">:</span>
+    <span class="token key atrule">app_net</span><span class="token punctuation">:</span>
+      <span class="token key atrule">ipv4_address</span><span class="token punctuation">:</span> 188.8.8.44
+
+<span class="token key atrule">clickhouse_exporter</span><span class="token punctuation">:</span>
+  <span class="token key atrule">image</span><span class="token punctuation">:</span> f1yegor/clickhouse<span class="token punctuation">-</span>exporter<span class="token punctuation">:</span>latest
+  <span class="token key atrule">container_name</span><span class="token punctuation">:</span> clickhouse_exporter
+  <span class="token key atrule">command</span><span class="token punctuation">:</span>
+    <span class="token punctuation">-</span> <span class="token string">&quot;-scrape_uri=http://root:123456@127.0.0.1:8123/&quot;</span>
+  <span class="token comment">#    ports:</span>
+  <span class="token comment">#      - &quot;9116:9116&quot;</span>
+  <span class="token key atrule">restart</span><span class="token punctuation">:</span> always
+  <span class="token key atrule">networks</span><span class="token punctuation">:</span>
+    <span class="token key atrule">app_net</span><span class="token punctuation">:</span>
+      <span class="token key atrule">ipv4_address</span><span class="token punctuation">:</span> 188.8.8.45
+
+<span class="token key atrule">nsq_exporter</span><span class="token punctuation">:</span>
+  <span class="token key atrule">image</span><span class="token punctuation">:</span> emaincourt/nsq_exporter<span class="token punctuation">:</span>latest
+  <span class="token key atrule">container_name</span><span class="token punctuation">:</span> nsq_exporter
+  <span class="token key atrule">command</span><span class="token punctuation">:</span>
+    <span class="token punctuation">-</span> <span class="token string">&quot;-nsqd.addr=http://nsqd:4151/stats&quot;</span>
+  <span class="token comment">#    ports:</span>
+  <span class="token comment">#      - &quot;9117:9117&quot;</span>
+  <span class="token key atrule">depends_on</span><span class="token punctuation">:</span>
+    <span class="token punctuation">-</span> nsqlookupd
+    <span class="token punctuation">-</span> nsqd
+    <span class="token punctuation">-</span> nsqadmin
+  <span class="token key atrule">networks</span><span class="token punctuation">:</span>
+    <span class="token key atrule">app_net</span><span class="token punctuation">:</span>
+      <span class="token key atrule">ipv4_address</span><span class="token punctuation">:</span> 188.8.8.46
+
+<span class="token comment"># 宿主机的采集器</span>
+<span class="token key atrule">node_exporter</span><span class="token punctuation">:</span>
+  <span class="token key atrule">image</span><span class="token punctuation">:</span> prom/node<span class="token punctuation">-</span>exporter<span class="token punctuation">:</span>latest
+  <span class="token key atrule">container_name</span><span class="token punctuation">:</span> node_exporter
+  <span class="token key atrule">network_mode</span><span class="token punctuation">:</span> <span class="token string">&quot;host&quot;</span>
+  <span class="token key atrule">pid</span><span class="token punctuation">:</span> <span class="token string">&quot;host&quot;</span>
+  <span class="token key atrule">volumes</span><span class="token punctuation">:</span>
+    <span class="token punctuation">-</span> /proc<span class="token punctuation">:</span>/host/proc<span class="token punctuation">:</span>ro
+    <span class="token punctuation">-</span> /sys<span class="token punctuation">:</span>/host/sys<span class="token punctuation">:</span>ro
+    <span class="token punctuation">-</span> /<span class="token punctuation">:</span>/rootfs<span class="token punctuation">:</span>ro
+  <span class="token key atrule">command</span><span class="token punctuation">:</span>
+    <span class="token punctuation">-</span> <span class="token string">&quot;--path.procfs=/host/proc&quot;</span>
+    <span class="token punctuation">-</span> <span class="token string">&quot;--path.rootfs=/rootfs&quot;</span>
+    <span class="token punctuation">-</span> <span class="token string">&quot;--path.sysfs=/host/sys&quot;</span>
+    <span class="token punctuation">-</span> <span class="token string">&quot;--collector.filesystem.ignored-mount-points=^/(sys|proc|dev|host|etc)($|/)&quot;</span>
+</code></pre></div><p><strong>注意事项：</strong></p><ul><li>建议将端口开放注释去掉，我习惯使用 docker 内网，不占用宿主机端口。</li><li><code>network_mode: host</code> 适合单机环境下 node_exporter 采集宿主机信息。</li><li>各 exporter 需要与被监控服务（如 redis、mysql 等）在同一网段，或确认地址端口可通。</li></ul><h2 id="三、prometheus-配置" tabindex="-1"><a class="header-anchor" href="#三、prometheus-配置" aria-hidden="true">#</a> 三、Prometheus 配置</h2><p>prometheus.yml 负责采集各 exporter 指标：</p><div class="language-yaml ext-yml"><pre class="language-yaml"><code><span class="token key atrule">global</span><span class="token punctuation">:</span>
+  <span class="token key atrule">scrape_interval</span><span class="token punctuation">:</span> 15s
+
+<span class="token key atrule">scrape_configs</span><span class="token punctuation">:</span>
+  <span class="token punctuation">-</span> <span class="token key atrule">job_name</span><span class="token punctuation">:</span> <span class="token string">&quot;node&quot;</span>
+    <span class="token key atrule">static_configs</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> <span class="token key atrule">targets</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">&quot;172.17.0.1:9100&quot;</span><span class="token punctuation">]</span>
+
+  <span class="token punctuation">-</span> <span class="token key atrule">job_name</span><span class="token punctuation">:</span> <span class="token string">&quot;prometheus&quot;</span>
+    <span class="token key atrule">static_configs</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> <span class="token key atrule">targets</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">&quot;188.8.8.41:9090&quot;</span><span class="token punctuation">]</span>
+
+  <span class="token punctuation">-</span> <span class="token key atrule">job_name</span><span class="token punctuation">:</span> <span class="token string">&quot;redis&quot;</span>
+    <span class="token key atrule">static_configs</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> <span class="token key atrule">targets</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">&quot;188.8.8.43:9121&quot;</span><span class="token punctuation">]</span>
+
+  <span class="token punctuation">-</span> <span class="token key atrule">job_name</span><span class="token punctuation">:</span> <span class="token string">&quot;mysql&quot;</span>
+    <span class="token key atrule">static_configs</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> <span class="token key atrule">targets</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">&quot;188.8.8.44:9104&quot;</span><span class="token punctuation">]</span>
+
+  <span class="token punctuation">-</span> <span class="token key atrule">job_name</span><span class="token punctuation">:</span> <span class="token string">&quot;clickhouse&quot;</span>
+    <span class="token key atrule">static_configs</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> <span class="token key atrule">targets</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">&quot;188.8.8.45:9116&quot;</span><span class="token punctuation">]</span>
+
+  <span class="token punctuation">-</span> <span class="token key atrule">job_name</span><span class="token punctuation">:</span> <span class="token string">&quot;nsq&quot;</span>
+    <span class="token key atrule">static_configs</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> <span class="token key atrule">targets</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">&quot;188.8.8.46:9117&quot;</span><span class="token punctuation">]</span>
+
+  <span class="token punctuation">-</span> <span class="token key atrule">job_name</span><span class="token punctuation">:</span> <span class="token string">&quot;server&quot;</span>
+    <span class="token key atrule">static_configs</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> <span class="token key atrule">targets</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">&quot;188.8.8.11:8888&quot;</span><span class="token punctuation">]</span> <span class="token comment"># 你需要让server暴露metrics端口</span>
+</code></pre></div><p><strong>注意：</strong></p><ul><li>请根据自己实际 docker 网络环境和 exporter 容器 IP 修改 targets。</li><li>各 exporter 默认端口可在对应官方文档或 DockerHub 查看。</li></ul><h2 id="四、golang-gin-服务接入-prometheus" tabindex="-1"><a class="header-anchor" href="#四、golang-gin-服务接入-prometheus" aria-hidden="true">#</a> 四、Golang Gin 服务接入 Prometheus</h2><p>以 gin 框架为例，推荐使用 <code>go-gin-prometheus</code> 插件实现零侵入采集。</p><p><strong>安装依赖：</strong></p><div class="language-bash ext-sh"><pre class="language-bash"><code>go get github.com/zsais/go-gin-prometheus
+go get github.com/prometheus/client_golang/prometheus/promhttp
+go get github.com/prometheus/client_golang/prometheus
+</code></pre></div><p><strong>代码集成：</strong></p><div class="language-go ext-go"><pre class="language-go"><code><span class="token keyword">import</span> <span class="token punctuation">(</span>
+    ginprometheus <span class="token string">&quot;github.com/zsais/go-gin-prometheus&quot;</span>
+    <span class="token string">&quot;github.com/gin-gonic/gin&quot;</span>
+<span class="token punctuation">)</span>
+
+<span class="token keyword">func</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    router <span class="token operator">:=</span> gin<span class="token punctuation">.</span><span class="token function">Default</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token comment">// 集成 Prometheus 到 Gin</span>
+    p <span class="token operator">:=</span> ginprometheus<span class="token punctuation">.</span><span class="token function">NewPrometheus</span><span class="token punctuation">(</span><span class="token string">&quot;gin&quot;</span><span class="token punctuation">)</span>
+    p<span class="token punctuation">.</span><span class="token function">Use</span><span class="token punctuation">(</span>router<span class="token punctuation">)</span> <span class="token comment">// 这行自动注册了 /metrics 路由</span>
+
+    <span class="token comment">// 你的路由注册</span>
+    router<span class="token punctuation">.</span><span class="token function">GET</span><span class="token punctuation">(</span><span class="token string">&quot;/ping&quot;</span><span class="token punctuation">,</span> <span class="token keyword">func</span><span class="token punctuation">(</span>ctx <span class="token operator">*</span>gin<span class="token punctuation">.</span>Context<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        ctx<span class="token punctuation">.</span><span class="token function">JSON</span><span class="token punctuation">(</span><span class="token number">200</span><span class="token punctuation">,</span> gin<span class="token punctuation">.</span>H<span class="token punctuation">{</span><span class="token string">&quot;message&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;pong&quot;</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+    router<span class="token punctuation">.</span><span class="token function">Run</span><span class="token punctuation">(</span><span class="token string">&quot;:8888&quot;</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p><strong>效果：</strong></p><ul><li>启动后自动暴露 <code>/metrics</code> 指标接口。</li><li>prometheus 配置中添加该服务即可采集 gin 请求耗时、QPS 等基础指标。</li></ul><h2 id="五、grafana-可视化" tabindex="-1"><a class="header-anchor" href="#五、grafana-可视化" aria-hidden="true">#</a> 五、Grafana 可视化</h2><ul><li>访问 http://localhost:3000，默认账号密码均为 <code>admin</code>。</li><li>添加 Prometheus 数据源（URL 填写 <code>http://prometheus:9090</code> 或宿主机端口）。</li><li>可以从 Grafana 官方网站或 <a href="https://grafana.com/grafana/dashboards/" target="_blank" rel="noopener noreferrer">Grafana.com Dashboards</a> 下载丰富的模板，也可自定义配置图表。</li></ul><blockquote><p>仪表盘模板很多，这里就不一一贴出了，按需导入即可。</p></blockquote><p><img src="/img/in-post/2025-06-20/123.png" alt="123"></p><p><img src="/img/in-post/2025-06-20/456.png" alt="456"></p><p><img src="/img/in-post/2025-06-20/789.png" alt="789"></p><h2 id="六、常见问题与-tips" tabindex="-1"><a class="header-anchor" href="#六、常见问题与-tips" aria-hidden="true">#</a> 六、常见问题与 Tips</h2><ul><li><strong>网络联通</strong>：建议所有服务和 exporter 使用同一自定义网络（如 app_net），确保 IP 可达。</li><li><strong>数据持久化</strong>：挂载数据卷，避免重启丢失历史数据和仪表盘配置。</li><li><strong>exporter 配置</strong>：部分 exporter 需配置密码、地址，建议用环境变量传递，注意安全。</li><li><strong>性能调优</strong>：单机测试建议 Prometheus 保留 3 天数据，生产可按需调整。</li><li><strong>metrics 定制</strong>：如需采集自定义业务指标，建议直接用 <code>prometheus/client_golang</code> 库埋点上报。</li></ul><h2 id="七、结语" tabindex="-1"><a class="header-anchor" href="#七、结语" aria-hidden="true">#</a> 七、结语</h2><p>通过 docker compose 一站式部署 Prometheus + Grafana 及各类 exporter，可以极大提升服务的可观测性和运维效率。无论是单机实验还是生产环境入门，这套方案都值得推荐。</p><p>如果你有更丰富的 exporter 组合或者仪表盘模板推荐，欢迎留言交流！</p><hr><blockquote><p>参考资料：</p><ul><li><a href="https://prometheus.io/docs/" target="_blank" rel="noopener noreferrer">Prometheus 官方文档</a></li><li><a href="https://grafana.com/docs/" target="_blank" rel="noopener noreferrer">Grafana 官方文档</a></li><li><a href="https://github.com/prometheus/docs/blob/main/content/docs/instrumenting/exporters.md" target="_blank" rel="noopener noreferrer">Awesome Prometheus Exporters</a></li></ul></blockquote></div><!--[--><!--]--></div><footer class="page-meta"><!----><!----><!----></footer><!----><!--[--><div class="pager"><a href="/post/2025/03/17/clickHouse%E5%85%A5%E9%AD%94%E4%B8%8E%E5%AE%9E%E8%B7%B5/" class="prev">Previous <br><span>ClickHouse 入门与实战：原理、部署与常用操作</span></a><!----></div><!--]--><!----></main><ul class="catalog" style="top:0px;"><li class="level-2 toc-link-一、目录结构">一、目录结构</li><li class="level-2 toc-link-二、docker-compose-服务编排">二、Docker Compose 服务编排</li><li class="level-2 toc-link-三、prometheus-配置">三、Prometheus 配置</li><li class="level-2 toc-link-四、golang-gin-服务接入-prometheus">四、Golang Gin 服务接入 Prometheus</li><li class="level-2 toc-link-五、grafana-可视化">五、Grafana 可视化</li><li class="level-2 toc-link-六、常见问题与-tips">六、常见问题与 Tips</li><li class="level-2 toc-link-七、结语">七、结语</li></ul></div><!--]--></div><div class="search-page" role="search"><span class="search-close"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="28" height="28" fill="currentColor"><path d="M224 416c-8.188 0-16.38-3.125-22.62-9.375l-192-192c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L224 338.8l169.4-169.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-192 192C240.4 412.9 232.2 416 224 416z"></path></svg></span><div class="gungnir-search-box"><input placeholder="$ grep ..." autocomplete="off" spellcheck="false" value><!----></div></div><div class="menu-btn-container"><div class="menu-btn-wrapper"><div class="menu-btn"><div style="" class="menu-btn-icon"><span></span><span></span><span></span></div><div style="display:none;" class="menu-text">0</div><svg class="menu-progress"><circle class="menu-border" cx="50%" cy="50%" r="48%" style="stroke-dasharray:0% 314.15926%;"></circle></svg></div><div class="menu-btn-child-wrapper"><div title="toggle color mode" class="menu-btn-child"><svg class="ov-icon" style="font-size:1.2em;display:none;" aria-hidden="true" width="19.2" height="19.2" viewBox="-43.52 -43.52 599.04 599.04" fill="currentColor"><path d="M256 160c-52.9 0-96 43.1-96 96s43.1 96 96 96 96-43.1 96-96-43.1-96-96-96zm246.4 80.5l-94.7-47.3 33.5-100.4c4.5-13.6-8.4-26.5-21.9-21.9l-100.4 33.5-47.4-94.8c-6.4-12.8-24.6-12.8-31 0l-47.3 94.7L92.7 70.8c-13.6-4.5-26.5 8.4-21.9 21.9l33.5 100.4-94.7 47.4c-12.8 6.4-12.8 24.6 0 31l94.7 47.3-33.5 100.5c-4.5 13.6 8.4 26.5 21.9 21.9l100.4-33.5 47.3 94.7c6.4 12.8 24.6 12.8 31 0l47.3-94.7 100.4 33.5c13.6 4.5 26.5-8.4 21.9-21.9l-33.5-100.4 94.7-47.3c13-6.5 13-24.7.2-31.1zm-155.9 106c-49.9 49.9-131.1 49.9-181 0-49.9-49.9-49.9-131.1 0-181 49.9-49.9 131.1-49.9 181 0 49.9 49.9 49.9 131.1 0 181z"/></svg><svg class="ov-icon" style="font-size:1.2em;display:none;" aria-hidden="true" width="19.2" height="19.2" viewBox="-43.52 -43.52 599.04 599.04" fill="currentColor"><path d="M283.211 512c78.962 0 151.079-35.925 198.857-94.792 7.068-8.708-.639-21.43-11.562-19.35-124.203 23.654-238.262-71.576-238.262-196.954 0-72.222 38.662-138.635 101.498-174.394 9.686-5.512 7.25-20.197-3.756-22.23A258.156 258.156 0 00283.211 0c-141.309 0-256 114.511-256 256 0 141.309 114.511 256 256 256z"/></svg><svg class="ov-icon" style="font-size:1.2em;" aria-hidden="true" width="19.2" height="19.2" viewBox="-43.52 -43.52 599.04 599.04" fill="currentColor"><path d="M224 96l16-32 32-16-32-16-16-32-16 32-32 16 32 16 16 32zM80 160l26.66-53.33L160 80l-53.34-26.67L80 0 53.34 53.33 0 80l53.34 26.67L80 160zm352 128l-26.66 53.33L352 368l53.34 26.67L432 448l26.66-53.33L512 368l-53.34-26.67L432 288zm70.62-193.77L417.77 9.38C411.53 3.12 403.34 0 395.15 0c-8.19 0-16.38 3.12-22.63 9.38L9.38 372.52c-12.5 12.5-12.5 32.76 0 45.25l84.85 84.85c6.25 6.25 14.44 9.37 22.62 9.37 8.19 0 16.38-3.12 22.63-9.37l363.14-363.15c12.5-12.48 12.5-32.75 0-45.24zM359.45 203.46l-50.91-50.91 86.6-86.6 50.91 50.91-86.6 86.6z"/></svg></div><div class="menu-btn-child"><svg class="ov-icon" style="font-size:1.2em;" aria-hidden="true" width="19.2" height="19.2" viewBox="-75.52 -43.52 599.04 599.04" fill="currentColor"><path d="M207.029 381.476L12.686 187.132c-9.373-9.373-9.373-24.569 0-33.941l22.667-22.667c9.357-9.357 24.522-9.375 33.901-.04L224 284.505l154.745-154.021c9.379-9.335 24.544-9.317 33.901.04l22.667 22.667c9.373 9.373 9.373 24.569 0 33.941L240.971 381.476c-9.373 9.372-24.569 9.372-33.942 0z"/></svg></div><div class="menu-btn-child"><svg class="ov-icon" style="font-size:1.2em;" aria-hidden="true" width="19.2" height="19.2" viewBox="-75.52 -43.52 599.04 599.04" fill="currentColor"><path d="M240.971 130.524l194.343 194.343c9.373 9.373 9.373 24.569 0 33.941l-22.667 22.667c-9.357 9.357-24.522 9.375-33.901.04L224 227.495 69.255 381.516c-9.379 9.335-24.544 9.317-33.901-.04l-22.667-22.667c-9.373-9.373-9.373-24.569 0-33.941L207.03 130.525c9.372-9.373 24.568-9.373 33.941-.001z"/></svg></div><div class="menu-btn-child menu-toc-btn"><svg class="ov-icon" style="font-size:1.2em;" aria-hidden="true" width="19.2" height="19.2" viewBox="-43.52 -43.52 599.04 599.04" fill="currentColor"><path d="M48 48a48 48 0 1048 48 48 48 0 00-48-48zm0 160a48 48 0 1048 48 48 48 0 00-48-48zm0 160a48 48 0 1048 48 48 48 0 00-48-48zm448 16H176a16 16 0 00-16 16v32a16 16 0 0016 16h320a16 16 0 0016-16v-32a16 16 0 00-16-16zm0-320H176a16 16 0 00-16 16v32a16 16 0 0016 16h320a16 16 0 0016-16V80a16 16 0 00-16-16zm0 160H176a16 16 0 00-16 16v32a16 16 0 0016 16h320a16 16 0 0016-16v-32a16 16 0 00-16-16z"/></svg></div><div class="toggle-sidebar-button menu-btn-child menu-btn-sidebar" title="toggle sidebar" aria-expanded="false" role="button" tabindex="0"><svg class="ov-icon" style="font-size:1.2em;" aria-hidden="true" width="19.2" height="19.2" viewBox="-1.6 -1.6 19.2 19.2" fill="currentColor"><path d="M14 2a1 1 0 011 1v10a1 1 0 01-1 1H2a1 1 0 01-1-1V3a1 1 0 011-1h12zM2 1a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V3a2 2 0 00-2-2H2z"/><path d="M3 4a1 1 0 011-1h2a1 1 0 011 1v8a1 1 0 01-1 1H4a1 1 0 01-1-1V4z"/></svg></div></div></div></div><footer class="footer"><span>
+      &copy; <a href="https://github.com/Renovamen" target="_blank">Oort</a> 2009-2024
+      <br>
+      Powered by <a href="https://v2.vuepress.vuejs.org" target="_blank">VuePress</a> & <a href="https://github.com/Renovamen/vuepress-theme-gungnir" target="_blank">Gungnir</a>
+      <br>
+      <a target="_blank" href="https://beian.miit.gov.cn">沪ICP备11018329号-5 / </a>
+      <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=31010402002252">沪公网安备31010402002252号  </a>
+     </span></footer></div><!--]--></div>
+    <script type="module" src="/assets/app.705b278e.js" defer></script>
+  </body>
+</html>
