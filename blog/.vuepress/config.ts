@@ -103,6 +103,26 @@ export default defineUserConfig({
       },
       {
         path: "/img/home-bg/5.jpg"
+      },
+      {
+        path: "/img/home-bg/6.jpeg",
+        mask: "rgba(40, 57, 101, .4)"
+      },
+      {
+        path: "/img/home-bg/7.jpeg",
+        mask: "rgba(196, 176, 131, .1)"
+      },
+      {
+        path: "/img/home-bg/8.jpeg",
+        mask: "rgba(68, 74, 83, .1)"
+      },
+      {
+        path: "/img/home-bg/9.jpeg",
+        mask: "rgba(19, 75, 50, .2)"
+      },
+      {
+        path: "/img/home-bg/10.jpeg",
+        mask: "rgba(19, 75, 50, .2)"
       }
     ],
 
