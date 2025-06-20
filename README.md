@@ -3,11 +3,11 @@
 </h1>
 
 <p align='center'>
-  一个被淘汰的开发者，学锤子，连介绍都是抄别人 <br/><br/>
+  一个被淘汰的开发者，连介绍都是抄别人 <br/><br/>
 </p>
 
 <h1 align='center'>
-  30多了还搞毛技术啊，挣扎~
+  道，不在远方，在脚下~
 </h1>
 
 <p align='center'>
@@ -43,7 +43,8 @@
   <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" />
   <img src="https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E" />
   <img src="https://img.shields.io/badge/Dart-777BB4?style=for-the-badge&logo=dart&logoColor=white" />
-  <img src="https://img.shields.io/badge/Java-1F6F00?style=for-the-badge&logo=openjdka&logoColor=white" />
+  <img src="https://img.shields.io/badge/Java-1F6F00?style=for-the-badge&logo=openjdk&logoColor=white" />
+  <img src="https://img.shields.io/badge/Kotlin-7F52FF?style=for-the-badge&logo=kotlin&logoColor=white" />
   <img src="https://img.shields.io/badge/OBJECTIVE--C-%233A95E3.svg?style=for-the-badge&logo=apple&logoColor=white" />
   <img src="https://img.shields.io/badge/swift-F54A2A?style=for-the-badge&logo=swift&logoColor=white" />
 </p>
