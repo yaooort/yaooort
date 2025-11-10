@@ -195,11 +195,11 @@ export default defineUserConfig({
         link: "/tags/",
         icon: "fa-tag"
       },
-      // {
-      //   text: "链接",
-      //   link: "/links/",
-      //   icon: "fa-satellite-dish"
-      // },
+      {
+        text: "开发者工具",
+        link: "https://oortk.com/web/",
+        icon: "fa-satellite-dish"
+      },
       {
         text: "关于",
         link: "https://oortk.com",
