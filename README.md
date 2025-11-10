@@ -3,7 +3,7 @@
 </h1>
 
 <p align='center'>
-  一个被淘汰的开发者，连介绍都是抄别人 <br/><br/>
+  过早的性能优化是灾难~ <br/><br/>
 </p>
 
 <h1 align='center'>
