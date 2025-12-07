@@ -17,12 +17,11 @@
   <a href="mailto:yaooort@gmail.com">
     <img src="https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white" />        
   </a>
-  
 </p>
 
-<p align='center'>
+<!-- <p align='center'>
   <a href="#"><img src="https://github-readme-stats.vercel.app/api?username=yaooort&show_icons=true&count_private=true&theme=dark" width="350"></a>
-</p>
+</p> -->
 
 <p align='center'>
   💻 开发设备1<br/><br/>
