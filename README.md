@@ -13,10 +13,10 @@
 <p align='center'>
   <a href="https://z3.ax1x.com/2021/09/01/h0pcYn.jpg">
     <img src="https://img.shields.io/badge/WeChat-07C160?style=for-the-badge&logo=wechat&logoColor=white" />
-  </a>&nbsp;&nbsp;
+  </a>
   <a href="mailto:yaooort@gmail.com">
     <img src="https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white" />        
-  </a>&nbsp;&nbsp;
+  </a>
   
 </p>
 
